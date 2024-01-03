@@ -6,11 +6,15 @@ export const ColorsFoundation = ({colors}) => {
   const getRootColors = () => {
     let rootColors = {}
     for (let key in colors) {
-      if (colors[key]) {
+      if (!isObject(colors[key])) {
         rootColors[key] = colors[key]
       }
     }
     return rootColors
+  }
+  
+  const isObject = (obj) => {
+    return obj && typeof obj === 'object'
   }
 
   return <div className="colors-container">
@@ -29,3 +33,10 @@ export const ColorsFoundation = ({colors}) => {
     </div>
 
 }
+
+
+// @media only screen and (min-width: 1024px) {
+//   .colors-container {
+//     max-width: 1000px;
+//   }
+// }
